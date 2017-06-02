@@ -1,28 +1,35 @@
-# ktor-heroku-start
+# Know your friends
 
-A barebones Kotlin and Ktor app, which can easily be deployed to Heroku.
+This app is gonna use Kotlin and Postgresql, and be deployed to Heroku.
 
-This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Now, the app uses libraries such as
+* [Ktor](https://github.com/Kotlin/ktor) as web web-service
+* [Requery](https://github.com/requery/requery) for ORM functionality
+* [Kotlin-logging](https://github.com/MicroUtils/kotlin-logging) for logging
 
 ## Running Locally
 
-Make sure you have Java and Maven installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+Make sure you have Java and Maven installed. Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
 ```sh
-$ git clone https://github.com/orangy/ktor-heroku-start.git
-$ cd ktor-heroku-start
-$ mvn install
+$ git clone https://github.com/edjacob25/doyouknowyourfriends
+$ cd doyouknowyoutfriends
+$ mvn clean install
 $ heroku local:start
 ```
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-If you're going to use a database, ensure you have a local `.env` file that reads something like this:
+To use the db, ensure you have a local `.env` file that reads something like this:
 
 ```
-DATABASE_URL=postgres://localhost:5432/java_database_name
+DB_NAME=dbname
+DB_USER=username
+DB_PASS=password
+DB_PORT=5432
+DB_SERVER=localhost
+PORT=5000
+DEBUG=true
 ```
 
 ## Deploying to Heroku
@@ -32,9 +39,3 @@ $ heroku create
 $ git push heroku master
 $ heroku open
 ```
-
-## Documentation
-
-For more information about using Java on Heroku, see these Dev Center articles:
-
-- [Java on Heroku](https://devcenter.heroku.com/categories/java)
