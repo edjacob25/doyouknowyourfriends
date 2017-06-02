@@ -14,16 +14,19 @@ import java.util.*
 import io.requery.sql.*
 import mu.KotlinLogging
 import org.jetbrains.ktor.logging.CallLogging
+import java.net.URI
 
 private val logger = KotlinLogging.logger {}
 
 val properties = Properties().apply {
+    val uri = URI(System.getenv("DATABASE_URL"))
+
     setProperty("dataSourceClassName", "org.postgresql.ds.PGSimpleDataSource")
-    setProperty("dataSource.user", System.getenv("DB_USER"))
-    setProperty("dataSource.databaseName", System.getenv("DB_NAME"))
-    setProperty("dataSource.portNumber", System.getenv("DB_PORT"))
-    setProperty("dataSource.serverName", System.getenv("DB_SERVER"))
-    setProperty("dataSource.password", System.getenv("DB_PASS"))
+    setProperty("dataSource.user", uri.userInfo.split(":")[0])
+    setProperty("dataSource.password", uri.userInfo.split(":")[1])
+    setProperty("dataSource.databaseName", uri.path)
+    setProperty("dataSource.portNumber", uri.port.toString())
+    setProperty("dataSource.serverName", uri.host)
 }
 
 val hikariConfig = HikariConfig(properties)
