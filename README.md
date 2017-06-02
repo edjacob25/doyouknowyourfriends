@@ -1,5 +1,7 @@
 # Know your friends
 
+[![Build Status](https://travis-ci.com/edjacob25/doyouknowyourfriends.svg?token=s88x7PAjB5z51xWWrfnx&branch=master)](https://travis-ci.com/edjacob25/doyouknowyourfriends)
+
 This app is gonna use Kotlin and Postgresql, and be deployed to Heroku.
 
 Now, the app uses libraries such as
