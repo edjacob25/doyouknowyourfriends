@@ -1,7 +1,5 @@
 package me.jacobrr.knf
 
-
-import com.sun.media.sound.ModelSource
 import com.zaxxer.hikari.*
 import freemarker.cache.*
 import org.jetbrains.ktor.application.*
@@ -13,12 +11,9 @@ import org.jetbrains.ktor.http.*
 import org.jetbrains.ktor.netty.*
 import org.jetbrains.ktor.routing.*
 import java.util.*
-import io.requery.*
 import io.requery.sql.*
 import mu.KotlinLogging
 import org.jetbrains.ktor.logging.CallLogging
-import org.jetbrains.ktor.util.nonceRandom
-import kotlin.reflect.jvm.internal.impl.resolve.constants.BooleanValue
 
 private val logger = KotlinLogging.logger {}
 
