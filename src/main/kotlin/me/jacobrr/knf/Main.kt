@@ -24,7 +24,7 @@ val properties = Properties().apply {
     setProperty("dataSourceClassName", "org.postgresql.ds.PGSimpleDataSource")
     setProperty("dataSource.user", uri.userInfo.split(":")[0])
     setProperty("dataSource.password", uri.userInfo.split(":")[1])
-    setProperty("dataSource.databaseName", uri.path)
+    setProperty("dataSource.databaseName", uri.path.substring(1))
     setProperty("dataSource.portNumber", uri.port.toString())
     setProperty("dataSource.serverName", uri.host)
 }
